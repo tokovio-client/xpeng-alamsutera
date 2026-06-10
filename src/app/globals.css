@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   /* Colors */
   --color-surface-container-low: #1a1c1f;
@@ -64,11 +68,11 @@
   --spacing-gutter: 24px;
 
   /* Fonts */
-  --font-headline-lg-mobile: "Space Grotesk", sans-serif;
-  --font-label-caps: "JetBrains Mono", monospace;
-  --font-headline-lg: "Space Grotesk", sans-serif;
-  --font-body-md: "Inter", sans-serif;
-  --font-display-lg: "Space Grotesk", sans-serif;
+  --font-headline-lg-mobile: var(--font-space-grotesk), sans-serif;
+  --font-label-caps: var(--font-jetbrains-mono), monospace;
+  --font-headline-lg: var(--font-space-grotesk), sans-serif;
+  --font-body-md: var(--font-inter), sans-serif;
+  --font-display-lg: var(--font-space-grotesk), sans-serif;
 
   /* Font Sizes, Line Heights, and Weights */
   --text-headline-lg-mobile: 32px;

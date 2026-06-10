@@ -1,28 +1,60 @@
 import Image from "next/image";
 import ScrollAnimator from "./ScrollAnimator";
+import { StoreInfo } from "@/lib/tokovio";
 
-const contacts = [
-  {
-    icon: "chat",
-    label: "WHATSAPP",
-    value: "082111155128",
-    href: "https://wa.me/6282111155128",
-  },
-  {
-    icon: "photo_camera",
-    label: "INSTAGRAM",
-    value: "xpengindonesia.official",
-    href: "https://instagram.com/xpengindonesia.official",
-  },
-  {
-    icon: "location_on",
-    label: "LOCATION",
-    value: "XPENG Alam Sutera",
-    href: "#dealer-map",
-  },
-];
+interface SpecialistProps {
+  store?: StoreInfo | null;
+}
 
-export default function Specialist() {
+export default function Specialist({ store }: SpecialistProps) {
+  let rawPhone = "6287770189135";
+  let displayPhone = "0877-7018-9135";
+  if (store?.payment_config) {
+    try {
+      const config = JSON.parse(store.payment_config);
+      if (config.phone) {
+        const cleaned = config.phone.replace(/^[+0]/, "").trim();
+        rawPhone = cleaned.startsWith("62") ? cleaned : "62" + cleaned;
+        
+        const localNum = cleaned.startsWith("62") ? "0" + cleaned.slice(2) : "0" + cleaned;
+        displayPhone = localNum.replace(/(\d{4})(\d{4})(\d{4,})/, "$1-$2-$3");
+      }
+    } catch {}
+  }
+
+  let instagramHandle = "xpengindonesia.official";
+  let instagramLink = "https://instagram.com/xpengindonesia.official";
+  if (store?.theme_config) {
+    try {
+      const parsed = JSON.parse(store.theme_config);
+      if (parsed.footer?.socialLinks?.instagram) {
+        instagramLink = parsed.footer.socialLinks.instagram;
+        instagramHandle = instagramLink.replace(/\/$/, "").split("/").pop() || "xpengindonesia.official";
+      }
+    } catch {}
+  }
+
+  const contacts = [
+    {
+      icon: "chat",
+      label: "WHATSAPP",
+      value: displayPhone,
+      href: `https://wa.me/${rawPhone}`,
+    },
+    {
+      icon: "photo_camera",
+      label: "INSTAGRAM",
+      value: instagramHandle,
+      href: instagramLink,
+    },
+    {
+      icon: "location_on",
+      label: "LOCATION",
+      value: store?.name || "XPENG Alam Sutera",
+      href: "#dealer-map",
+    },
+  ];
+
   return (
     <ScrollAnimator>
       <section className="py-40 bg-background">
@@ -73,10 +105,19 @@ export default function Specialist() {
                     href={href}
                     className="flex items-center gap-4 p-6 glass-card hover:bg-primary/10 group"
                   >
-                    <div className="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
-                      <span className="material-symbols-outlined text-primary group-hover:text-on-primary">
-                        {icon}
-                      </span>
+                    <div className="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center group-hover:bg-primary transition-colors overflow-hidden">
+                      {icon === "chat" ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="https://img.magnific.com/premium-vector/vector-whatsapp-social-media-logo_1093524-447.jpg?semt=ais_hybrid&w=740&q=80"
+                          alt="WhatsApp"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="material-symbols-outlined text-primary group-hover:text-on-primary">
+                          {icon}
+                        </span>
+                      )}
                     </div>
                     <div>
                       <p className="font-label-caps text-[10px] text-outline">
@@ -88,7 +129,9 @@ export default function Specialist() {
                 ))}
 
                 <a
-                  href="https://wa.me/6282111155128"
+                  href={`https://wa.me/${rawPhone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-primary text-on-primary p-6 font-label-caps text-label-caps flex items-center justify-center gap-3 hover:shadow-[0_0_20px_rgba(195,245,255,0.3)] transition-all"
                 >
                   CHAT WITH ME{" "}

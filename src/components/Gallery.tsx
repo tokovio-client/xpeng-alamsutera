@@ -27,7 +27,7 @@ const galleryImages = [
 export default function Gallery() {
   return (
     <ScrollAnimator>
-      <section className="py-40 bg-surface-container-lowest">
+      <section id="gallery" className="scroll-mt-24 py-40 bg-surface-container-lowest">
         <div className="max-w-container-max mx-auto px-margin-desktop mb-20 text-center">
           <span className="font-label-caps text-label-caps text-outline mb-4 block">
             SHOWROOM &amp; MOMENTS

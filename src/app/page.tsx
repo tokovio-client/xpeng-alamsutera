@@ -7,19 +7,26 @@ import Specialist from "@/components/Specialist";
 import DealerMap from "@/components/DealerMap";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { getStore, getStoreProducts } from "@/lib/tokovio";
 
-export default function Home() {
+export default async function Home() {
+  const [store, products] = await Promise.all([
+    getStore(),
+    getStoreProducts(),
+  ]);
+
   return (
     <main>
-      <Navbar />
-      <Hero />
+      <Navbar store={store} />
+      <Hero store={store} />
       <WhyXpeng />
-      <Models />
+      <Models products={products} store={store} />
       <Gallery />
-      <Specialist />
+      <Specialist store={store} />
       <DealerMap />
-      <Footer />
-      <FloatingWhatsApp />
+      <Footer store={store} />
+      <FloatingWhatsApp store={store} />
     </main>
   );
 }
+

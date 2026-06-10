@@ -1,18 +1,37 @@
+import { StoreInfo } from "@/lib/tokovio";
+
 const models = ["Xpeng G6", "Xpeng X9", "P7 Wing Edition", "Future Tech"];
 const links = ["Privacy Policy", "Terms of Service", "Press", "Investors", "Careers"];
 
-export default function Footer() {
+interface FooterProps {
+  store?: StoreInfo | null;
+}
+
+export default function Footer({ store }: FooterProps) {
+  let instagramLink = "https://instagram.com/xpengindonesia.official";
+  if (store?.theme_config) {
+    try {
+      const parsed = JSON.parse(store.theme_config);
+      if (parsed.footer?.socialLinks?.instagram) {
+        instagramLink = parsed.footer.socialLinks.instagram;
+      }
+    } catch {}
+  }
+
+  const brandName = store?.name || "XPENG";
+  const brandDescription = store?.description || "Leading the way in intelligent mobility with cutting-edge EV technology and autonomous systems.";
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-surface-container-lowest w-full py-20 border-t border-outline-variant/20">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
         {/* Brand */}
         <div className="col-span-1">
           <div className="font-headline-lg text-headline-lg text-on-surface mb-8">
-            XPENG
+            {brandName}
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant">
-            Leading the way in intelligent mobility with cutting-edge EV
-            technology and autonomous systems.
+            {brandDescription}
           </p>
         </div>
 
@@ -62,7 +81,7 @@ export default function Footer() {
               <span className="material-symbols-outlined text-xl">share</span>
             </a>
             <a
-              href="https://instagram.com/xpengindonesia.official"
+              href={instagramLink}
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -77,7 +96,7 @@ export default function Footer() {
       {/* Copyright */}
       <div className="max-w-container-max mx-auto px-margin-desktop mt-20 pt-8 border-t border-outline-variant/10 text-center">
         <p className="font-label-caps text-label-caps text-outline">
-          © 2024 XPENG Motors. All rights reserved.
+          © {currentYear} {brandName} Motors. All rights reserved.
         </p>
       </div>
     </footer>

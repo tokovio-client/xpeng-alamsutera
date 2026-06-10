@@ -10,7 +10,7 @@ const hours = [
 export default function DealerMap() {
   return (
     <ScrollAnimator>
-      <section id="dealer-map" className="py-40 bg-surface-container-lowest">
+      <section id="contact" className="scroll-mt-24 py-40 bg-surface-container-lowest">
         <div className="max-w-container-max mx-auto px-margin-desktop">
           <h2 className="font-headline-lg text-headline-lg mb-16 text-center">
             VISIT OUR DEALER NOW

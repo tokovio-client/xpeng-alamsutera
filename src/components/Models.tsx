@@ -1,7 +1,8 @@
 import Image from "next/image";
 import ScrollAnimator from "./ScrollAnimator";
+import { Product, StoreInfo } from "@/lib/tokovio";
 
-const models = [
+const staticModels = [
   {
     name: "G6 PRO",
     price: "Rp 679.000.000",
@@ -25,10 +26,54 @@ const models = [
   },
 ];
 
-export default function Models() {
+interface ModelsProps {
+  products?: Product[];
+  store?: StoreInfo | null;
+}
+
+function formatPrice(price: number) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(price);
+}
+
+export default function Models({ products = [], store }: ModelsProps) {
+  let whatsappNumber = "6287770189135";
+  if (store?.payment_config) {
+    try {
+      const config = JSON.parse(store.payment_config);
+      if (config.phone) {
+        whatsappNumber = config.phone.replace(/^[+0]/, "").trim();
+        if (!whatsappNumber.startsWith("62")) {
+          whatsappNumber = "62" + whatsappNumber;
+        }
+      }
+    } catch {}
+  }
+
+  const displayModels =
+    products.length > 0
+      ? products.map((p) => ({
+          name: p.name,
+          price: formatPrice(p.price),
+          image: p.image_url || "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=1000",
+          alt: p.description || p.name,
+          stock: p.stock,
+        }))
+      : staticModels.map((m) => ({ ...m, stock: 1 }));
+
+  const firstG6Index = displayModels.findIndex((m) =>
+    m.name.toUpperCase().includes("G6")
+  );
+  const firstX9Index = displayModels.findIndex((m) =>
+    m.name.toUpperCase().includes("X9")
+  );
+
   return (
     <ScrollAnimator>
-      <section className="py-40 bg-background overflow-hidden">
+      <section id="models" className="scroll-mt-24 py-40 bg-background overflow-hidden">
         <div className="max-w-container-max mx-auto px-margin-desktop mb-20">
           <div className="flex justify-between items-end">
             <div>
@@ -55,41 +100,65 @@ export default function Models() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-container-max mx-auto">
-          {models.map(({ name, price, image, alt }) => (
-            <div
-              key={name}
-              className="group relative glass-card p-0 overflow-hidden"
-            >
-              <div className="h-64 overflow-hidden relative">
-                <Image
-                  src={image}
-                  alt={alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 font-label-caps text-[10px] z-10">
-                  AVAILABLE STOCK
+          {displayModels.map(({ name, price, image, alt, stock }, index) => {
+            const message = `Hi, I'm interested in ordering the XPENG ${name} priced at ${price} from Alam Sutera.`;
+            const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            let cardId = undefined;
+            if (index === firstG6Index) {
+              cardId = "g6";
+            } else if (index === firstX9Index) {
+              cardId = "x9";
+            }
+
+            return (
+              <div
+                key={name}
+                id={cardId}
+                className="group relative glass-card p-0 overflow-hidden flex flex-col justify-between h-full scroll-mt-24"
+              >
+                <div>
+                  <div className="h-64 overflow-hidden relative">
+                    <Image
+                      src={image}
+                      alt={alt}
+                      fill
+                      loading={index === 0 ? "eager" : "lazy"}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 font-label-caps text-[10px] z-10">
+                      {stock > 0 ? "AVAILABLE STOCK" : "OUT OF STOCK"}
+                    </div>
+                  </div>
+                  <div className="p-8 pb-0">
+                    <h3 className="font-headline-lg text-2xl mb-2">{name}</h3>
+                    <p className="font-label-caps text-label-caps text-on-surface-variant mb-6">
+                      START FROM
+                    </p>
+                    <div className="flex justify-between items-baseline mb-8">
+                      <span className="text-primary font-headline-lg text-3xl">
+                        {price}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-8 pt-4">
+                  <a
+                    href={waLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 bg-on-surface text-background font-label-caps text-label-caps hover:bg-primary transition-colors block text-center"
+                  >
+                    EXPLORE MORE / ORDER
+                  </a>
                 </div>
               </div>
-              <div className="p-8">
-                <h3 className="font-headline-lg text-2xl mb-2">{name}</h3>
-                <p className="font-label-caps text-label-caps text-on-surface-variant mb-6">
-                  START FROM
-                </p>
-                <div className="flex justify-between items-baseline mb-8">
-                  <span className="text-primary font-headline-lg text-3xl">
-                    {price}
-                  </span>
-                </div>
-                <button className="w-full py-4 bg-on-surface text-background font-label-caps text-label-caps hover:bg-primary transition-colors">
-                  EXPLORE MORE
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </ScrollAnimator>
   );
 }
+

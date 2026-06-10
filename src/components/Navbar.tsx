@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { StoreInfo } from "@/lib/tokovio";
 
-export default function Navbar() {
+interface NavbarProps {
+  store?: StoreInfo | null;
+}
+
+export default function Navbar({ store }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,18 +28,37 @@ export default function Navbar() {
       }`}
     >
       <div className="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
-        <div className="font-headline-lg text-headline-lg tracking-tighter text-on-surface dark:text-on-background">
-          XPENG
+        <div className="flex items-center gap-3 font-headline-lg text-headline-lg tracking-tighter text-on-surface dark:text-on-background">
+          {store?.logo_url && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={store.logo_url}
+              alt="Store Logo"
+              className="w-8 h-8 object-cover rounded-full border border-white/10"
+            />
+          )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://xpeng.co.id/logo/xpeng-logo-white.svg"
+            alt="XPENG Logo"
+            className="h-5 w-auto object-contain"
+          />
         </div>
 
         <div className="hidden md:flex items-center gap-10">
-          {["G6", "X9", "Services", "Gallery", "Contact"].map((item) => (
+          {[
+            { label: "G6", id: "#g6" },
+            { label: "X9", id: "#x9" },
+            { label: "Services", id: "#services" },
+            { label: "Gallery", id: "#gallery" },
+            { label: "Contact", id: "#contact" },
+          ].map((item) => (
             <a
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.id}
               className="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-all duration-300 font-label-caps text-label-caps"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>
