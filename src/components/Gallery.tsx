@@ -27,29 +27,40 @@ const galleryImages = [
 export default function Gallery() {
   return (
     <ScrollAnimator>
-      <section id="gallery" className="scroll-mt-24 py-40 bg-surface-container-lowest">
-        <div className="max-w-container-max mx-auto px-margin-desktop mb-20 text-center">
+      <section id="gallery" className="scroll-mt-24 py-20 md:py-40 bg-surface-container-lowest">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-10 md:mb-20 text-center">
           <span className="font-label-caps text-label-caps text-outline mb-4 block">
             SHOWROOM &amp; MOMENTS
           </span>
-          <h2 className="font-headline-lg text-headline-lg">GALLERY</h2>
+          <h2 className="font-headline-lg text-4xl md:text-headline-lg">GALLERY</h2>
         </div>
 
-        <div className="flex gap-4 overflow-x-auto no-scrollbar px-10">
-          {galleryImages.map(({ src, alt, width }) => (
-            <div
-              key={alt}
-              className={`${width} h-[500px] rounded-lg overflow-hidden flex-shrink-0 relative`}
-            >
-              <Image
-                src={src}
-                alt={alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                className="object-cover hover:scale-110 transition-transform duration-1000"
-              />
-            </div>
-          ))}
+        <div className="flex gap-4 overflow-x-auto no-scrollbar px-margin-mobile md:px-margin-desktop">
+          {galleryImages.map(({ src, alt, width }) => {
+            const responsiveWidth =
+              width === "min-w-[400px]"
+                ? "min-w-[280px] md:min-w-[400px]"
+                : width === "min-w-[600px]"
+                ? "min-w-[420px] md:min-w-[600px]"
+                : width === "min-w-[500px]"
+                ? "min-w-[350px] md:min-w-[500px]"
+                : "min-w-[300px]";
+
+            return (
+              <div
+                key={alt}
+                className={`${responsiveWidth} h-[300px] md:h-[500px] rounded-lg overflow-hidden flex-shrink-0 relative`}
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                  className="object-cover hover:scale-110 transition-transform duration-1000"
+                />
+              </div>
+            );
+          })}
         </div>
       </section>
     </ScrollAnimator>

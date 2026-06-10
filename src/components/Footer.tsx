@@ -24,10 +24,10 @@ export default function Footer({ store }: FooterProps) {
 
   return (
     <footer className="bg-surface-container-lowest w-full py-20 border-t border-outline-variant/20">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         {/* Brand */}
         <div className="col-span-1">
-          <div className="font-headline-lg text-headline-lg text-on-surface mb-8">
+          <div className="font-headline-lg text-3xl md:text-headline-lg text-on-surface mb-8">
             {brandName}
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant">
@@ -94,7 +94,7 @@ export default function Footer({ store }: FooterProps) {
       </div>
 
       {/* Copyright */}
-      <div className="max-w-container-max mx-auto px-margin-desktop mt-20 pt-8 border-t border-outline-variant/10 text-center">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-20 pt-8 border-t border-outline-variant/10 text-center">
         <p className="font-label-caps text-label-caps text-outline">
           © {currentYear} {brandName} Motors. All rights reserved.
         </p>

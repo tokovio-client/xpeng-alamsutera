@@ -57,11 +57,11 @@ export default function Specialist({ store }: SpecialistProps) {
 
   return (
     <ScrollAnimator>
-      <section className="py-40 bg-background">
-        <div className="max-w-container-max mx-auto px-margin-desktop">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="py-20 md:py-40 bg-background">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left – portrait + quote card */}
-            <div className="relative">
+            <div className="relative mb-8 lg:mb-0">
               <div className="aspect-square bg-surface-container-high rounded-full overflow-hidden border-4 border-primary/20 relative">
                 <Image
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuArA0VG4-hN88Q8ODeAL9pqU282xD8ln-UrmXgfhrKftHKxCQd43DXkCeHeONvEubv_3XvNKIyTCVFwzP3gdc3NTaIEKnB2Myvfq8yLMLlo7jzksCcfNLzTmgpQBXIW1rE3u6BUM06p5N8YU_MBObn20wcr6RS-1EVqT5K8cVA1AEGBFl8KTYVa4VdmvPUNvXJ6Z1ufniWXMLc52zYsEGLWh-SrWYdakSMTm5GQ2qmr-Hl27atbC7ksk_Psc1GZaQsRkprDYQSwxJE"
@@ -73,7 +73,7 @@ export default function Specialist({ store }: SpecialistProps) {
               </div>
 
               {/* Quote overlay card */}
-              <div className="absolute -bottom-10 -right-10 glass-card p-8 rounded-lg max-w-xs">
+              <div className="absolute -bottom-6 right-0 md:-bottom-10 md:-right-10 glass-card p-6 md:p-8 rounded-lg max-w-xs">
                 <p className="font-body-md text-on-surface-variant italic mb-4">
                   &ldquo;Delivering a premium and personalized electric vehicle
                   ownership experience at XPENG Alam Sutera.&rdquo;
@@ -91,7 +91,7 @@ export default function Specialist({ store }: SpecialistProps) {
                 <span className="font-label-caps text-label-caps text-outline mb-4 block">
                   HELLO, I&rsquo;M JEREMY
                 </span>
-                <h2 className="font-headline-lg text-headline-lg mb-6 leading-tight">
+                <h2 className="font-headline-lg text-4xl md:text-headline-lg mb-6 leading-tight">
                   YOUR XPENG
                   <br />
                   SPECIALIST

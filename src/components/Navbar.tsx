@@ -41,8 +41,8 @@ export default function Navbar({ store }: NavbarProps) {
           : "bg-surface/10 backdrop-blur-xl dark:bg-surface-dim/20"
       }`}
     >
-      <div className="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
-        <div className="flex items-center gap-3 font-headline-lg text-headline-lg tracking-tighter text-on-surface dark:text-on-background">
+      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+        <div className="flex items-center gap-3 font-headline-lg text-headline-lg tracking-tighter text-on-surface dark:text-on-background flex-shrink-0">
           {store?.logo_url && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -81,7 +81,7 @@ export default function Navbar({ store }: NavbarProps) {
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-primary px-8 py-3 rounded-DEFAULT text-on-primary font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95 block text-center"
+          className="bg-primary px-4 py-2 md:px-8 md:py-3 rounded-DEFAULT text-on-primary font-label-caps text-[10px] md:text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95 block text-center whitespace-nowrap"
         >
           Book Test Drive
         </a>

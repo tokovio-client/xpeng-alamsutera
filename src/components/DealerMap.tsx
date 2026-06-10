@@ -10,15 +10,15 @@ const hours = [
 export default function DealerMap() {
   return (
     <ScrollAnimator>
-      <section id="contact" className="scroll-mt-24 py-40 bg-surface-container-lowest">
-        <div className="max-w-container-max mx-auto px-margin-desktop">
-          <h2 className="font-headline-lg text-headline-lg mb-16 text-center">
+      <section id="contact" className="scroll-mt-24 py-20 md:py-40 bg-surface-container-lowest">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <h2 className="font-headline-lg text-4xl md:text-headline-lg mb-8 md:mb-16 text-center">
             VISIT OUR DEALER NOW
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 glass-card overflow-hidden">
             {/* Map image – 2/3 width */}
-            <div className="lg:col-span-2 relative h-[500px]">
+            <div className="lg:col-span-2 relative h-[300px] md:h-[500px]">
               <div className="absolute inset-0 grayscale contrast-125 opacity-70">
                 <Image
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4ju0tN-gPq3mODqtmyhxmlyV3lC6CRb63PZs-1SeFXMPgpTb1YqVugQvBg0tONeNusHBoh_7lS4sS0BSxjdJlfoV6a9EipFVuhj6sMEES6KAuBJu2A8JO3qgiSbLqgquP8FrIgUz6mvBGCIGfAooZS6H5O4HtMrmjXKLkClqsIN4QgEvQyEjOOTcmQBuWfN-HW_wonOEWtnhti1LhkMQOpHbvPTGPCbQ8wU2q4P-KwipHt0Ad7Z3u-OQ8X9podfjDwOnZ9A10oGo"
@@ -45,7 +45,7 @@ export default function DealerMap() {
             </div>
 
             {/* Info panel – 1/3 width */}
-            <div className="p-12 space-y-10 flex flex-col justify-center">
+            <div className="p-6 md:p-12 space-y-10 flex flex-col justify-center">
               <div>
                 <span className="font-label-caps text-xs text-primary mb-2 flex items-center gap-2">
                   <span className="material-symbols-outlined text-xs">

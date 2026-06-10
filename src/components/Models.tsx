@@ -73,14 +73,14 @@ export default function Models({ products = [], store }: ModelsProps) {
 
   return (
     <ScrollAnimator>
-      <section id="models" className="scroll-mt-24 py-40 bg-background overflow-hidden">
-        <div className="max-w-container-max mx-auto px-margin-desktop mb-20">
+      <section id="models" className="scroll-mt-24 py-20 md:py-40 bg-background overflow-hidden">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-10 md:mb-20">
           <div className="flex justify-between items-end">
             <div>
               <span className="font-label-caps text-label-caps text-primary mb-4 block">
                 AVAILABLE NOW
               </span>
-              <h2 className="font-headline-lg text-headline-lg">OUR MODEL</h2>
+              <h2 className="font-headline-lg text-4xl md:text-headline-lg">OUR MODEL</h2>
             </div>
             <div className="flex gap-4">
               <button
@@ -99,7 +99,7 @@ export default function Models({ products = [], store }: ModelsProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           {displayModels.map(({ name, price, image, alt, stock }, index) => {
             const message = `Hi, I'm interested in ordering the XPENG ${name} priced at ${price} from Alam Sutera.`;
             const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

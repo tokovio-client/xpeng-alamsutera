@@ -92,13 +92,13 @@ export default function Hero({ store }: HeroProps) {
         </div>
 
         {/* Content */}
-        <div className="relative z-20 px-margin-desktop w-full max-w-container-max mx-auto">
+        <div className="relative z-20 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
           <div className="max-w-2xl space-y-8">
             <span className="inline-block px-4 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-primary font-label-caps text-label-caps">
               NOW AVAILABLE IN ALAM SUTERA
             </span>
 
-            <h1 className="font-display-lg text-display-lg text-white">
+            <h1 className="font-display-lg text-4xl sm:text-5xl md:text-display-lg text-white leading-tight">
               {titleParts[0]}
               {titleParts.length > 1 && (
                 <>
@@ -112,10 +112,10 @@ export default function Hero({ store }: HeroProps) {
               {subtitle}
             </p>
 
-            <div className="flex gap-6 pt-4">
+            <div className="flex flex-row gap-4 pt-4 w-full sm:w-auto">
               <a
                 href="#models"
-                className="bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps hover:shadow-[0_0_20px_rgba(195,245,255,0.3)] transition-all block text-center"
+                className="flex-1 bg-primary text-on-primary px-4 py-3 md:px-10 md:py-4 font-label-caps text-[10px] md:text-label-caps hover:shadow-[0_0_20px_rgba(195,245,255,0.3)] transition-all block text-center whitespace-nowrap"
               >
                 {primaryButtonText}
               </a>
@@ -123,7 +123,7 @@ export default function Hero({ store }: HeroProps) {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-white/30 text-white px-10 py-4 font-label-caps text-label-caps hover:bg-white/5 transition-all block text-center"
+                className="flex-1 border border-white/30 text-white px-4 py-3 md:px-10 md:py-4 font-label-caps text-[10px] md:text-label-caps hover:bg-white/5 transition-all block text-center whitespace-nowrap"
               >
                 {secondaryButtonText}
               </a>
