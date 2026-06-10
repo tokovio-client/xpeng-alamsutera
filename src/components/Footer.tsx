@@ -121,7 +121,7 @@ export default function Footer({ store }: FooterProps) {
       {/* Copyright */}
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-20 pt-8 border-t border-outline-variant/10 text-center">
         <p className="font-label-caps text-label-caps text-outline">
-          © {currentYear} {brandName} Motors. All rights reserved.
+          © {currentYear} {brandName} All rights reserved.
         </p>
       </div>
     </footer>
