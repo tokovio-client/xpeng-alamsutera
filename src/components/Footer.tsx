@@ -18,6 +18,20 @@ export default function Footer({ store }: FooterProps) {
     } catch {}
   }
 
+  let rawPhone = "6287770189135";
+  if (store?.payment_config) {
+    try {
+      const config = JSON.parse(store.payment_config);
+      if (config.phone) {
+        const cleaned = config.phone.replace(/^[+0]/, "").trim();
+        rawPhone = cleaned.startsWith("62") ? cleaned : "62" + cleaned;
+      }
+    } catch {}
+  }
+
+  const message = "Hi, I'd like to ask about XPENG electric vehicles at Alam Sutera.";
+  const waLink = `https://wa.me/${rawPhone}?text=${encodeURIComponent(message)}`;
+
   const brandName = store?.name || "XPENG";
   const brandDescription = store?.description || "Leading the way in intelligent mobility with cutting-edge EV technology and autonomous systems.";
   const currentYear = new Date().getFullYear();
@@ -51,22 +65,6 @@ export default function Footer({ store }: FooterProps) {
           </ul>
         </div>
 
-        {/* Links */}
-        <div className="col-span-1 md:ml-auto">
-          <h4 className="font-label-caps text-label-caps text-primary mb-6">
-            LINKS
-          </h4>
-          <ul className="space-y-4 font-body-md text-body-md text-on-surface-variant">
-            {links.map((link) => (
-              <li key={link}>
-                <a href="#" className="hover:text-primary transition-colors">
-                  {link}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Follow Us */}
         <div className="col-span-1 md:ml-auto">
           <h4 className="font-label-caps text-label-caps text-primary mb-6">
@@ -74,11 +72,18 @@ export default function Footer({ store }: FooterProps) {
           </h4>
           <div className="flex gap-4">
             <a
-              href="#"
-              aria-label="Share"
-              className="w-10 h-10 border border-outline-variant/30 rounded-full flex items-center justify-center hover:border-primary transition-colors"
+              href={waLink}
+              aria-label="WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 border border-outline-variant/30 rounded-full flex items-center justify-center hover:border-primary transition-colors overflow-hidden"
             >
-              <span className="material-symbols-outlined text-xl">share</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://img.magnific.com/premium-vector/vector-whatsapp-social-media-logo_1093524-447.jpg?semt=ais_hybrid&w=740&q=80"
+                alt="WhatsApp"
+                className="w-full h-full object-cover"
+              />
             </a>
             <a
               href={instagramLink}
