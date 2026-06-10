@@ -29,10 +29,10 @@ export default function Gallery() {
     <ScrollAnimator>
       <section id="gallery" className="scroll-mt-24 py-20 md:py-40 bg-surface-container-lowest">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-10 md:mb-20 text-center">
-          <span className="font-label-caps text-label-caps text-outline mb-4 block">
+          {/* <span className="font-label-caps text-label-caps text-outline mb-4 block">
             SHOWROOM &amp; MOMENTS
-          </span>
-          <h2 className="font-headline-lg text-4xl md:text-headline-lg">GALLERY</h2>
+          </span> */}
+          <h2 className="font-headline-lg text-4xl md:text-headline-lg">Explore XPENG</h2>
         </div>
 
         <div className="flex gap-4 overflow-x-auto no-scrollbar px-margin-mobile md:px-margin-desktop">

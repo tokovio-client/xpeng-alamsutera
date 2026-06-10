@@ -13,7 +13,7 @@ export default function DealerMap() {
       <section id="contact" className="scroll-mt-24 py-20 md:py-40 bg-surface-container-lowest">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <h2 className="font-headline-lg text-4xl md:text-headline-lg mb-8 md:mb-16 text-center">
-            VISIT OUR DEALER NOW
+            Find Us at Alam Sutera
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 glass-card overflow-hidden">

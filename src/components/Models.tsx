@@ -78,9 +78,9 @@ export default function Models({ products = [], store }: ModelsProps) {
           <div className="flex justify-between items-end">
             <div>
               <span className="font-label-caps text-label-caps text-primary mb-4 block">
-                AVAILABLE NOW
+                Now Arriving
               </span>
-              <h2 className="font-headline-lg text-4xl md:text-headline-lg">OUR MODEL</h2>
+              <h2 className="font-headline-lg text-4xl md:text-headline-lg">XPENG Collection</h2>
             </div>
             <div className="flex gap-4">
               <button
@@ -118,14 +118,14 @@ export default function Models({ products = [], store }: ModelsProps) {
                 className="group relative glass-card p-0 overflow-hidden flex flex-col justify-between h-full scroll-mt-24"
               >
                 <div>
-                  <div className="h-64 overflow-hidden relative">
+                  <div className="h-64 overflow-hidden relative bg-white flex items-center justify-center">
                     <Image
                       src={image}
                       alt={alt}
                       fill
                       loading={index === 0 ? "eager" : "lazy"}
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 font-label-caps text-[10px] z-10">
                       {stock > 0 ? "AVAILABLE STOCK" : "OUT OF STOCK"}

@@ -1,9 +1,11 @@
 import ScrollAnimator from "./ScrollAnimator";
 
 const features = [
-  { icon: "bolt", label: "Fast Charging" },
-  { icon: "memory", label: "Smart Technology" },
-  { icon: "wifi", label: "Intelligent Connectivity" },
+  { icon: "electric_car", label: "The Future of Driving" },
+  { icon: "bolt", label: "Ultra-Fast Charging" },
+  { icon: "devices", label: "Connected Living" },
+  { icon: "weekend", label: "First Class Comfort" },
+  { icon: "memory", label: "Advanced Intelligence" },
 ];
 
 export default function WhyXpeng() {

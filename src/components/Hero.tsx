@@ -22,7 +22,7 @@ export default function Hero({ store }: HeroProps) {
     }
   }, [themeConfig]);
 
-  const title = heroConfig?.title || "XPENG X9:\nIntelligent Living";
+  const title = heroConfig?.title || "XPENG :\nIntelligent Living";
   const titleParts = title.split("\n");
   const subtitle = heroConfig?.subtitle || "The ultimate flagship MPV built on the SEPA 2.0 architecture. Experience the fusion of high-performance tech and silent luxury.";
 
