@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "id_ID",
     images: [
       {
-        url: "https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781099021/tokovio/products/og-image_sijquz.jpg",
+        url: "https://xpeng-alamsutera.id/og-image.png",
         width: 1024,
         height: 1024,
         alt: "XPENG Alam Sutera Sales Consultant - Jeremy",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "XPENG ALAM SUTERA",
     description:
       "Dealer Resmi Mobil Listrik Xpeng di Alam Sutera. Dapatkan Promo, Harga Terbaru, & Booking Test Drive G6 & X9 Sekarang!",
-    images: ["https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781099021/tokovio/products/og-image_sijquz.jpg"],
+    images: ["https://xpeng-alamsutera.id/og-image.png"],
   },
 };
 
