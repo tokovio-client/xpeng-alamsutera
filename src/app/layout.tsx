@@ -18,9 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XPENG | Intelligent Living – Alam Sutera Official Dealer",
+  title: "XPENG ALAM SUTERA – Official XPENG Consultant",
   description:
-    "XPENG Alam Sutera – Your official XPENG electric vehicle dealer in Tangerang Selatan. Explore the G6 PRO, X9 PRO, and X9 PRO+. Book a test drive today.",
+    "Official XPENG electric vehicle consultant in Alam Sutera, Tangerang. Get exclusive promo, price list, and book a test drive for XPENG G6 & X9.",
   keywords: [
     "XPENG",
     "Alam Sutera",
@@ -32,10 +32,28 @@ export const metadata: Metadata = {
     "Tangerang",
   ],
   openGraph: {
-    title: "XPENG | Intelligent Living – Alam Sutera",
+    title: "XPENG ALAM SUTERA",
     description:
-      "Experience the fusion of high-performance tech and silent luxury. Book your XPENG test drive at Alam Sutera today.",
+      "Dealer Resmi Mobil Listrik Xpeng di Alam Sutera. Dapatkan Promo, Harga Terbaru, & Booking Test Drive G6 & X9 Sekarang!",
+    url: "https://xpeng-alamsutera.id",
+    siteName: "XPENG Alam Sutera",
     type: "website",
+    locale: "id_ID",
+    images: [
+      {
+        url: "https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781099021/tokovio/products/og-image_sijquz.jpg",
+        width: 1024,
+        height: 1024,
+        alt: "XPENG Alam Sutera Sales Consultant - Jeremy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "XPENG ALAM SUTERA",
+    description:
+      "Dealer Resmi Mobil Listrik Xpeng di Alam Sutera. Dapatkan Promo, Harga Terbaru, & Booking Test Drive G6 & X9 Sekarang!",
+    images: ["https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781099021/tokovio/products/og-image_sijquz.jpg"],
   },
 };
 
