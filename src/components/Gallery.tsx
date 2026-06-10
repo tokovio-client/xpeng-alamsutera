@@ -3,22 +3,22 @@ import ScrollAnimator from "./ScrollAnimator";
 
 const galleryImages = [
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAfuLFLRpoTw9QUjZbHNzYBjlxxYVCg02-NpKF0s_k4F4mI5HTCJWm4Q4dnNQNn_AfB3boYB2HjAon9yYciJKcO_2gBcMANJco8VW0r35srhownIBRrc9miIwRemljfw5eXtgO2iVApM5ciBT-LJUb90JKJKaU8hvgzh4iM8AXGiSfcaMlQmYNGeg3lPOVfZ-6uWd7VYjNdle0Zn3FA5CWSl82dy1sJK2w4Lp1QVI2FEtoyA5lQn2T5u0c-hhYE6P848Zp5rB3OrR8",
+    src: "https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/34e946d9b0334643bd635568b1cc6c94.jpg?x-oss-process=image%2Fresize%2Cw_1920%2Fquality%2Cq_80%2Finterlace%2C1",
     alt: "Professional man in black suit entering XPENG X9 outside glass skyscraper",
     width: "min-w-[400px]",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJz4Sq42iPyZ_DxfntUhlwUYcNHduY_20SiBDlOe1RsvupEMr5hUQyAyxmG8z8OXikKQiQTOZVR0pr3PuTSGb0CfdD_wyz10JJr_fddHWpFjZ_dQnXmNj9rnM-kko209ebXk1u6nFSoTJsenboZxzpiY5l6sAAi4ioDFELsPbGPFLdwELi7pTiyRwBIUgvXIR8oWgvBqVttZ9YV5R8x_GiEf_vteEoB_TqvUhQLTY_H4i-GYXm5sCeroRw2dk1wSvY9VtrlNkr6kY",
+    src: "https://s-cdn.xpeng.com/commoncms/prod/2025-07-03/b33ec948b93d404d9b1d84181c55cdd6.jpg?x-oss-process=image%2Fresize%2Cw_1920%2Fquality%2Cq_80%2Finterlace%2C1",
     alt: "XPENG driving on winding coastal road at sunset",
     width: "min-w-[600px]",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuADgkIK6m15ex-Xa7FFOWquOIk9MqF0OE58OJqTneeCE4CpEgN0d36XkwKXnpMX1o-CsWanPmnkA-tER-V4DYwyZgvqom0Y5bVfGfTTX0ZJQLhOeJMJyHlOxp-N7sGvlVjHSz3vRkdjLoMLUcKBTmCnsir2nNAheUCaPruVrzITFSSIg3YoSy3T9uz2F6793TS7COEat7xrSe425mrMTDV4BfDnRyDNpc7WrBRe1XmZ-hZG_gmpL8bPD294nguFSLYulPnOY1ARJOc",
+    src: "https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/2c0de1e035944f1895841b78e978d033.jpg?name=New+X9+PC-P2-1",
     alt: "XPENG logo macro detail with rain beads on metallic surface",
     width: "min-w-[400px]",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWWPxQUA9pMxQ0JfWqqdWilCNUfIONn5xzzibhuYp7XtlxcKXrX2lRjBY9Vm0WFUEK9Tak3PIb6cuYF_gYRfrvDvsAfnLmM1V90tYVchvO4WpajWfPYsNTuOyEpQqKIs-_JnY5gBdTHa0BJE2IgnwlStI0JnjLVYA4CXtbPGbT9YiDG1NFXhOz-O9XXPjKO4WywFj-U2WOCU9-KAlLdgzyphI72VU3vZDrp7dJEWLQroAZwMNhdYd5sZM7keU7UhTUgwr9hA4-NiI",
+    src: "https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/a519b283b156449baafbf149cbef85be.jpg?name=New+X9+PC-P2-2",
     alt: "XPENG dashboard at night with cyan navigation UI display",
     width: "min-w-[500px]",
   },
