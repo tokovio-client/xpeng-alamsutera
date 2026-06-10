@@ -96,7 +96,7 @@ export default function Specialist({ store }: SpecialistProps) {
             <div className="space-y-12">
               <div>
                 <span className="font-label-caps text-label-caps text-outline mb-4 block">
-                  HELLO, Jeremy — Your Personal XPENG Advisor
+                  Jeremy — Your Personal XPENG Advisor
                 </span>
                 <h2 className="font-headline-lg text-4xl md:text-headline-lg mb-6 leading-tight">
                   XPENG CONSULTANT
