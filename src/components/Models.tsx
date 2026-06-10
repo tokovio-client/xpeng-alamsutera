@@ -127,9 +127,6 @@ export default function Models({ products = [], store }: ModelsProps) {
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-contain group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 font-label-caps text-[10px] z-10">
-                      {stock > 0 ? "AVAILABLE STOCK" : "OUT OF STOCK"}
-                    </div>
                   </div>
                   <div className="p-8 pb-0">
                     <h3 className="font-headline-lg text-2xl mb-2">{name}</h3>
