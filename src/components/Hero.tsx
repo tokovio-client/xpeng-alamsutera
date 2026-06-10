@@ -10,15 +10,17 @@ interface HeroProps {
 }
 
 export default function Hero({ store }: HeroProps) {
-  let heroConfig = null;
-  if (store?.theme_config) {
+  const themeConfig = store?.theme_config;
+
+  const heroConfig = useMemo(() => {
+    if (!themeConfig) return null;
     try {
-      const parsed = JSON.parse(store.theme_config);
-      if (parsed.hero) {
-        heroConfig = parsed.hero;
-      }
-    } catch {}
-  }
+      const parsed = JSON.parse(themeConfig);
+      return parsed.hero || null;
+    } catch {
+      return null;
+    }
+  }, [themeConfig]);
 
   const title = heroConfig?.title || "XPENG X9:\nIntelligent Living";
   const titleParts = title.split("\n");
@@ -40,26 +42,16 @@ export default function Hero({ store }: HeroProps) {
   
   // Resolve backgroundImages (accept array or fallback to single string)
   const backgroundImages = useMemo<string[]>(() => {
-    let currentHeroConfig = null;
-    if (store?.theme_config) {
-      try {
-        const parsed = JSON.parse(store.theme_config);
-        if (parsed.hero) {
-          currentHeroConfig = parsed.hero;
-        }
-      } catch {}
-    }
-
-    if (Array.isArray(currentHeroConfig?.backgroundImages)) {
-      return currentHeroConfig.backgroundImages;
-    } else if (currentHeroConfig?.backgroundImage) {
-      return [currentHeroConfig.backgroundImage];
+    if (Array.isArray(heroConfig?.backgroundImages)) {
+      return heroConfig.backgroundImages;
+    } else if (heroConfig?.backgroundImage) {
+      return [heroConfig.backgroundImage];
     } else {
       return [
         "https://lh3.googleusercontent.com/aida-public/AB6AXuAd83-GHPx3VYJfauIk_VYGI10Uclnnd1h-hrHfHgdQCuNvYw-3ijF2rpGE2GTujCF_2FHdU1ht_wlMZBkg8BSioyh8Nlhn2GoV2FbHoYNox0PQi6R1p7akCyL6ynX-pldT3cC4pELvHyfxLZZosTaPJXEF8hNtpIQFr3RZyyEMkt37c5FbSH1Em5Egdyjzb7HKUZKD3GP3ODbf6Dt93MVw75uBs_4PEJZrpd8P5ve_PEIQZ3YBK8eGQ0R7a5lezqoQq-J-e_t6e8A"
       ];
     }
-  }, [store?.theme_config]);
+  }, [heroConfig]);
 
   const primaryButtonText = heroConfig?.primaryButtonText || "EXPLORE X9";
   const secondaryButtonText = heroConfig?.secondaryButtonText || "BOOK TEST DRIVE";
