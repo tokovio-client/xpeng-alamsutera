@@ -17,17 +17,17 @@ export default function WhyXpeng() {
             {/* Left column */}
             <div>
               <h2 className="font-headline-lg text-4xl md:text-headline-lg mb-8">
-                WHY XPENG?
+                XPENG for Best Experience
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant mb-12 max-w-lg">
                 The thrill of tomorrow starts now, WITH XPENG.
                 <br />
                 See it, feel it, for best experience
               </p>
-              <div className="space-y-2">
-                <p className="font-label-caps text-label-caps text-outline">
-                  Xpeng Alam Sutera | Official Consultant
-                </p>
+              <div className="space-y-4">
+                <h3 className="font-headline-lg text-2xl md:text-3xl text-primary font-bold tracking-tight">
+                  Discover XPENG
+                </h3>
                 <a
                   href="https://wa.me/6287770189135"
                   target="_blank"
@@ -45,24 +45,31 @@ export default function WhyXpeng() {
               </div>
             </div>
 
-            {/* Right column – feature cards */}
-            <div className="space-y-6 md:space-y-8">
-              {features.map(({ icon, label }) => (
+            {/* Right column – feature cards grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {features.map(({ icon, label }, index) => (
                 <div
                   key={label}
-                  className="group flex items-center justify-between p-6 md:p-8 glass-card"
+                  className={`group p-6 md:p-8 glass-card flex flex-col justify-between min-h-[150px] md:min-h-[170px] hover:border-primary/50 transition-all duration-300 ${
+                    index === 4 ? "sm:col-span-2" : ""
+                  }`}
                 >
-                  <div className="flex items-center gap-6">
-                    <span className="material-symbols-outlined text-primary text-3xl">
+                  <div className="flex justify-between items-start">
+                    <span className="material-symbols-outlined text-primary text-4xl">
                       {icon}
                     </span>
-                    <span className="font-headline-lg text-xl md:text-2xl group-hover:text-primary transition-colors">
-                      {label}
+                    <span className="text-white/10 font-mono text-xl group-hover:text-primary/30 transition-colors">
+                      0{index + 1}
                     </span>
                   </div>
-                  <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">
-                    arrow_forward
-                  </span>
+                  <div className="mt-8 flex items-center justify-between">
+                    <span className="font-headline-lg text-lg md:text-xl group-hover:text-primary transition-colors">
+                      {label}
+                    </span>
+                    <span className="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                      arrow_forward
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>

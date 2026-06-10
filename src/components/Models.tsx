@@ -125,7 +125,7 @@ export default function Models({ products = [], store }: ModelsProps) {
                       fill
                       loading={index === 0 ? "eager" : "lazy"}
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                      className="object-contain group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 font-label-caps text-[10px] z-10">
                       {stock > 0 ? "AVAILABLE STOCK" : "OUT OF STOCK"}
