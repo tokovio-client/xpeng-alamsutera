@@ -55,13 +55,21 @@ export default function Footer({ store }: FooterProps) {
             MODELS
           </h4>
           <ul className="space-y-4 font-body-md text-body-md text-on-surface-variant">
-            {models.map((model) => (
-              <li key={model}>
-                <a href="#" className="hover:text-primary transition-colors">
-                  {model}
-                </a>
-              </li>
-            ))}
+            {models.map((model) => {
+              let href = "#models";
+              if (model.toUpperCase().includes("G6")) {
+                href = "#g6";
+              } else if (model.toUpperCase().includes("X9")) {
+                href = "#x9";
+              }
+              return (
+                <li key={model}>
+                  <a href={href} className="hover:text-primary transition-colors">
+                    {model}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

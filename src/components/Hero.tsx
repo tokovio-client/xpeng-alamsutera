@@ -22,8 +22,8 @@ export default function Hero({ store }: HeroProps) {
     }
   }, [themeConfig]);
 
-  const rawTitle = heroConfig?.title || "XPENG :\nIntelligent Living";
-  const title = rawTitle.replace("XPENG X9:", "XPENG :");
+  const rawTitle = heroConfig?.title || "XPENG\nIntelligent Living";
+  const title = rawTitle.replace(/XPENG\s*(?:X9)?\s*:\s*/i, "XPENG\n");
   const titleParts = title.split("\n");
   const subtitle = heroConfig?.subtitle || "The ultimate flagship MPV built on the SEPA 2.0 architecture. Experience the fusion of high-performance tech and silent luxury.";
 
@@ -54,7 +54,7 @@ export default function Hero({ store }: HeroProps) {
     }
   }, [heroConfig]);
 
-  const primaryButtonText = heroConfig?.primaryButtonText || "EXPLORE X9";
+  const primaryButtonText = "Discover XPENG";
   const secondaryButtonText = heroConfig?.secondaryButtonText || "BOOK TEST DRIVE";
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
