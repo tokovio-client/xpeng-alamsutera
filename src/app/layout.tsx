@@ -18,6 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.xpeng-alamsutera.id"),
   title: "XPENG ALAM SUTERA – Official XPENG Consultant",
   description:
     "Official XPENG electric vehicle consultant in Alam Sutera, Tangerang. Get exclusive promo, price list, and book a test drive for XPENG G6 & X9.",
@@ -35,13 +36,13 @@ export const metadata: Metadata = {
     title: "XPENG ALAM SUTERA",
     description:
       "Dealer Resmi Mobil Listrik Xpeng di Alam Sutera. Dapatkan Promo, Harga Terbaru, & Booking Test Drive G6 & X9 Sekarang!",
-    url: "https://xpeng-alamsutera.id",
+    url: "/",
     siteName: "XPENG Alam Sutera",
     type: "website",
     locale: "id_ID",
     images: [
       {
-        url: "https://xpeng-alamsutera.id/og-image.png",
+        url: "/og-image.png",
         width: 1024,
         height: 1024,
         alt: "XPENG Alam Sutera Sales Consultant - Jeremy",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     title: "XPENG ALAM SUTERA",
     description:
       "Dealer Resmi Mobil Listrik Xpeng di Alam Sutera. Dapatkan Promo, Harga Terbaru, & Booking Test Drive G6 & X9 Sekarang!",
-    images: ["https://xpeng-alamsutera.id/og-image.png"],
+    images: ["/og-image.png"],
   },
 };
 
