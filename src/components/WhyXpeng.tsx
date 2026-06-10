@@ -18,9 +18,9 @@ export default function WhyXpeng() {
                 WHY XPENG?
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant mb-12 max-w-lg">
-                Designed for the future. Engineered for intelligent living.
-                XPENG is redefining mobility through autonomous driving and
-                smart cockpits.
+                The thrill of tomorrow starts now, WITH XPENG.
+                <br />
+                See it, feel it, for best experience
               </p>
               <div className="space-y-2">
                 <p className="font-label-caps text-label-caps text-outline">

@@ -8,7 +8,7 @@ interface FooterProps {
 }
 
 export default function Footer({ store }: FooterProps) {
-  let instagramLink = "https://instagram.com/xpengindonesia.official";
+  let instagramLink = "https://instagram.com/xpengserpong.id";
   if (store?.theme_config) {
     try {
       const parsed = JSON.parse(store.theme_config);

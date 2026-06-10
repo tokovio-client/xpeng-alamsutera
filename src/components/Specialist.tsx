@@ -22,14 +22,14 @@ export default function Specialist({ store }: SpecialistProps) {
     } catch {}
   }
 
-  let instagramHandle = "xpengindonesia.official";
-  let instagramLink = "https://instagram.com/xpengindonesia.official";
+  let instagramHandle = "xpengserpong.id";
+  let instagramLink = "https://instagram.com/xpengserpong.id";
   if (store?.theme_config) {
     try {
       const parsed = JSON.parse(store.theme_config);
       if (parsed.footer?.socialLinks?.instagram) {
         instagramLink = parsed.footer.socialLinks.instagram;
-        instagramHandle = instagramLink.replace(/\/$/, "").split("/").pop() || "xpengindonesia.official";
+        instagramHandle = instagramLink.replace(/\/$/, "").split("/").pop() || "xpengserpong.id";
       }
     } catch {}
   }
