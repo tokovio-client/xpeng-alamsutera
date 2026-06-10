@@ -92,9 +92,7 @@ export default function Specialist({ store }: SpecialistProps) {
                   HELLO, I&rsquo;M JEREMY
                 </span>
                 <h2 className="font-headline-lg text-4xl md:text-headline-lg mb-6 leading-tight">
-                  YOUR XPENG
-                  <br />
-                  SPECIALIST
+                  XPENG CONSULTANT
                 </h2>
               </div>
 

@@ -9,6 +9,7 @@ interface NavbarProps {
 
 export default function Navbar({ store }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   let rawPhone = "6287770189135";
   if (store?.payment_config) {
@@ -36,7 +37,7 @@ export default function Navbar({ store }: NavbarProps) {
     <nav
       id="main-nav"
       className={`fixed top-0 w-full z-50 transition-all duration-500 border-b border-white/10 dark:border-outline-variant/30 ${
-        scrolled
+        scrolled || menuOpen
           ? "scrolled-nav"
           : "bg-surface/10 backdrop-blur-xl dark:bg-surface-dim/20"
       }`}
@@ -77,14 +78,62 @@ export default function Navbar({ store }: NavbarProps) {
           ))}
         </div>
 
+        {/* Desktop CTA (hidden on mobile) */}
         <a
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-primary px-4 py-2 md:px-8 md:py-3 rounded-DEFAULT text-on-primary font-label-caps text-[10px] md:text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95 block text-center whitespace-nowrap"
+          className="hidden md:block bg-primary px-8 py-3 rounded-DEFAULT text-on-primary font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95 text-center whitespace-nowrap"
         >
           Book Test Drive
         </a>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-3 md:hidden">
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary px-4 py-2 rounded-DEFAULT text-on-primary font-label-caps text-[10px] hover:bg-primary-fixed-dim transition-all active:scale-95 block text-center whitespace-nowrap"
+          >
+            Book Test Drive
+          </a>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="w-10 h-10 flex items-center justify-center border border-white/20 text-on-surface hover:bg-white/5 active:scale-95 transition-all"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {menuOpen ? "close" : "menu"}
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <div
+        className={`absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-white/10 flex flex-col p-6 gap-4 md:hidden transition-all duration-300 ease-in-out ${
+          menuOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-4 pointer-events-none"
+        }`}
+      >
+        {[
+          { label: "G6", id: "#g6" },
+          { label: "X9", id: "#x9" },
+          { label: "Services", id: "#services" },
+          { label: "Gallery", id: "#gallery" },
+          { label: "Contact", id: "#contact" },
+        ].map((item) => (
+          <a
+            key={item.label}
+            href={item.id}
+            onClick={() => setMenuOpen(false)}
+            className="text-on-surface-variant hover:text-on-surface hover:bg-white/5 px-4 py-3 rounded-DEFAULT transition-all duration-300 font-label-caps text-label-caps text-left"
+          >
+            {item.label}
+          </a>
+        ))}
       </div>
     </nav>
   );

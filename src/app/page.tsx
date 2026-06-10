@@ -19,10 +19,10 @@ export default async function Home() {
     <main>
       <Navbar store={store} />
       <Hero store={store} />
+      <Specialist store={store} />
       <WhyXpeng />
       <Models products={products} store={store} />
       <Gallery />
-      <Specialist store={store} />
       <DealerMap />
       <Footer store={store} />
       <FloatingWhatsApp store={store} />
