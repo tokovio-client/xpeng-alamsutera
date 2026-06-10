@@ -73,13 +73,13 @@ export default function Specialist({ store }: SpecialistProps) {
               </div>
 
               {/* Quote overlay card */}
-              <div className="absolute -bottom-6 right-0 md:-bottom-10 md:-right-10 glass-card p-6 md:p-8 rounded-lg max-w-xs">
-                <p className="font-body-md text-on-surface-variant italic mb-4">
+              <div className="absolute -bottom-6 right-0 md:-bottom-10 md:-right-10 glass-card p-4 md:p-8 rounded-lg max-w-[260px] md:max-w-xs">
+                <p className="text-xs md:text-body-md text-on-surface-variant italic mb-3 md:mb-4">
                   &ldquo;Delivering a premium and personalized electric vehicle
                   ownership experience at XPENG Alam Sutera.&rdquo;
                 </p>
-                <p className="font-headline-lg text-lg">JEREMY</p>
-                <p className="font-label-caps text-xs text-primary">
+                <p className="font-headline-lg text-sm md:text-lg">JEREMY</p>
+                <p className="font-label-caps text-[10px] md:text-xs text-primary">
                   OFFICIAL XPENG CONSULTANT
                 </p>
               </div>
