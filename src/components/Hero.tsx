@@ -23,6 +23,20 @@ export default function Hero({ store }: HeroProps) {
   const title = heroConfig?.title || "XPENG X9:\nIntelligent Living";
   const titleParts = title.split("\n");
   const subtitle = heroConfig?.subtitle || "The ultimate flagship MPV built on the SEPA 2.0 architecture. Experience the fusion of high-performance tech and silent luxury.";
+
+  let rawPhone = "6287770189135";
+  if (store?.payment_config) {
+    try {
+      const config = JSON.parse(store.payment_config);
+      if (config.phone) {
+        const cleaned = config.phone.replace(/^[+0]/, "").trim();
+        rawPhone = cleaned.startsWith("62") ? cleaned : "62" + cleaned;
+      }
+    } catch {}
+  }
+
+  const message = "Hi, I'd like to book a test drive for an XPENG electric vehicle at Alam Sutera.";
+  const waLink = `https://wa.me/${rawPhone}?text=${encodeURIComponent(message)}`;
   
   // Resolve backgroundImages (accept array or fallback to single string)
   const backgroundImages = useMemo<string[]>(() => {
@@ -107,12 +121,20 @@ export default function Hero({ store }: HeroProps) {
             </p>
 
             <div className="flex gap-6 pt-4">
-              <button className="bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps hover:shadow-[0_0_20px_rgba(195,245,255,0.3)] transition-all">
+              <a
+                href="#models"
+                className="bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps hover:shadow-[0_0_20px_rgba(195,245,255,0.3)] transition-all block text-center"
+              >
                 {primaryButtonText}
-              </button>
-              <button className="border border-white/30 text-white px-10 py-4 font-label-caps text-label-caps hover:bg-white/5 transition-all">
+              </a>
+              <a
+                href={waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/30 text-white px-10 py-4 font-label-caps text-label-caps hover:bg-white/5 transition-all block text-center"
+              >
                 {secondaryButtonText}
-              </button>
+              </a>
             </div>
           </div>
         </div>

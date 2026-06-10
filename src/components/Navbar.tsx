@@ -10,6 +10,20 @@ interface NavbarProps {
 export default function Navbar({ store }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
+  let rawPhone = "6287770189135";
+  if (store?.payment_config) {
+    try {
+      const config = JSON.parse(store.payment_config);
+      if (config.phone) {
+        const cleaned = config.phone.replace(/^[+0]/, "").trim();
+        rawPhone = cleaned.startsWith("62") ? cleaned : "62" + cleaned;
+      }
+    } catch {}
+  }
+
+  const message = "Hi, I'd like to book a test drive for an XPENG electric vehicle at Alam Sutera.";
+  const waLink = `https://wa.me/${rawPhone}?text=${encodeURIComponent(message)}`;
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
@@ -63,9 +77,14 @@ export default function Navbar({ store }: NavbarProps) {
           ))}
         </div>
 
-        <button className="bg-primary px-8 py-3 rounded-DEFAULT text-on-primary font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95">
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-primary px-8 py-3 rounded-DEFAULT text-on-primary font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-all active:scale-95 block text-center"
+        >
           Book Test Drive
-        </button>
+        </a>
       </div>
     </nav>
   );
