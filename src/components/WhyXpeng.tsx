@@ -9,17 +9,17 @@ const features = [
   {
     icon: "bolt",
     label: "Ultra-Fast Charging",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBC_tp-opS10MskC6ZpN1x3rlidi55usA-ifRuZTTwrrtE94UxCqSvIo50YttOWg8aLko05ixvugqKSdjrRuZ741wLLsd_65KdX13UqIZLmljS-CRqKwJRczUZsDHo6xLDLbQTyxPiZAyTrZcZT1CubhcyPd_F1N0qA52-0XHU_TqQB3ZVHWarQYneRramepw4ZwQRiYe2PzvzIiia1rwb4CCbb3_XtQrB6ONh0VsDA3APsdJzZIQs9GMNmg6mHDdteuPn374ckXPM",
+    image: "https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781098178/tokovio/products/89f48435-1514-422a-8c23-141157ee2f24_cnnivk.jpg",
   },
   {
     icon: "devices",
     label: "Connected Living",
-    image: "https://s-cdn.xpeng.com/commoncms/prod/2026-03-19/a519b283b156449baafbf149cbef85be.jpg?name=New+X9+PC-P2-2&w=800",
+    image: "https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781098178/tokovio/products/b972b46f-0b79-41ee-bf31-953636ea74d3_tqoodp.jpg",
   },
   {
     icon: "weekend",
     label: "First Class Comfort",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBiDLijV5bihN4qwHq9n9B3e5P0ZFQiG4zmdTixj8z3_Pz0mIEJ3QEjtnodx3U9m4qhEvoXxCxf4BgKmTGhHLq-fo9MHLuKY81W3ghgJAEvuBWGj5a7KjDZGu4San6HWSEm-sSWbCIWH6w5vgji8fjQOVMBWiicE23L2h6w3Xn9udW1-645kgyx8WxCqiMKXtXR1GDkOB58uztCbHP_EKtE-U0nCPmdqX04RanZTCvyMw5lS1_GVIKyDCLpf4iT4P4_GStUMPxmf-8",
+    image: "https://res.cloudinary.com/karyalaza-indonesia/image/upload/v1781098178/tokovio/products/8d27d2ef-2edc-4414-b918-57e229d4dbf2_bofp50.jpg",
   },
   {
     icon: "memory",
